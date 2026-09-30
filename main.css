@@ -1,0 +1,446 @@
+/* =========================================================
+   CarForge — main.css
+   Delad grundstil: tokens, typografi, navigering, footer
+   ========================================================= */
+
+:root {
+  /* --- Färgpalett --- */
+  --color-bg: #0D0F10;
+  --color-bg-raised: #16181A;
+  --color-panel: #202325;
+  --color-panel-border: #33373A;
+  --color-text: #F5F3EE;
+  --color-text-dim: #B7B9B8;
+  --color-text-faint: #8A8F94;
+  --color-accent: #C4501F;
+  --color-accent-bright: #DE6A34;
+  --color-accent-dim: #7A3315;
+  --color-legal-yes: #4C8A68;
+  --color-legal-no: #B23A2E;
+  --color-legal-check: #B9862F;
+
+  /* --- Typografi --- */
+  --font-display: 'Oswald', 'Arial Narrow', 'Helvetica Neue', sans-serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  /* --- Spacing scale --- */
+  --space-1: 0.4rem;
+  --space-2: 0.8rem;
+  --space-3: 1.4rem;
+  --space-4: 2.2rem;
+  --space-5: 3.6rem;
+  --space-6: 5.8rem;
+  --space-7: 9.4rem;
+
+  /* --- Layout --- */
+  --content-max: 1180px;
+  --radius-sm: 3px;
+  --radius-md: 5px;
+  --border-hairline: 1px solid var(--color-panel-border);
+}
+
+@media (prefers-color-scheme: light) {
+  /* Sidan är avsiktligt mörk oavsett systemtema — garage/verkstadsestetik */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  background-image:
+    linear-gradient(180deg, rgba(196,80,31,0.05) 0%, rgba(196,80,31,0) 320px);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin: 0;
+  color: var(--color-text);
+}
+
+p {
+  margin: 0 0 var(--space-3);
+  color: var(--color-text-dim);
+  max-width: 62ch;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-bright);
+  outline-offset: 3px;
+}
+
+.wrap {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+@media (max-width: 720px) {
+  .wrap {
+    padding: 0 var(--space-3);
+  }
+}
+
+/* =========================================================
+   Header / navigering
+   ========================================================= */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(13, 15, 16, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: var(--border-hairline);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.brand__logo {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+
+.main-nav {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.main-nav a {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-text-dim);
+  padding: var(--space-1) 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+  color: var(--color-text);
+}
+
+.main-nav a[aria-current="page"] {
+  color: var(--color-text);
+  border-bottom-color: var(--color-accent);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: var(--border-hairline);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2);
+  cursor: pointer;
+}
+
+.nav-toggle span,
+.nav-toggle span::before,
+.nav-toggle span::after {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--color-text);
+  position: relative;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle span::before,
+.nav-toggle span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.nav-toggle span::before { top: -6px; }
+.nav-toggle span::after { top: 6px; }
+
+@media (max-width: 780px) {
+  .nav-toggle {
+    display: block;
+  }
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--color-bg-raised);
+    border-bottom: var(--border-hairline);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+  .main-nav.is-open {
+    max-height: 320px;
+  }
+  .main-nav a {
+    padding: var(--space-3) var(--space-4);
+    border-bottom: var(--border-hairline);
+    border-left: 3px solid transparent;
+  }
+  .main-nav a[aria-current="page"] {
+    border-left-color: var(--color-accent);
+    border-bottom-color: var(--color-panel-border);
+  }
+}
+
+/* =========================================================
+   Knappar
+   ========================================================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 0.85em 1.6em;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  color: #100A07;
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  background: var(--color-accent-bright);
+}
+
+.btn--outline {
+  background: transparent;
+  border-color: var(--color-panel-border);
+  color: var(--color-text);
+}
+
+.btn--outline:hover,
+.btn--outline:focus-visible {
+  border-color: var(--color-accent);
+  color: var(--color-accent-bright);
+}
+
+.btn--full {
+  width: 100%;
+  justify-content: center;
+}
+
+/* =========================================================
+   Badge (används för laglig status: hero, konfigurator, footer)
+   ========================================================= */
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  padding: 0.25em 0.7em;
+  border-radius: 999px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge--ok {
+  background: rgba(76, 138, 104, 0.16);
+  color: var(--color-legal-yes);
+}
+
+.badge--check {
+  background: rgba(185, 134, 47, 0.16);
+  color: var(--color-legal-check);
+}
+
+.badge--no {
+  background: rgba(178, 58, 46, 0.16);
+  color: var(--color-legal-no);
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+
+.site-footer {
+  border-top: var(--border-hairline);
+  margin-top: var(--space-7);
+  padding: var(--space-5) 0 var(--space-4);
+  color: var(--color-text-faint);
+}
+
+.site-footer__inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: var(--space-5);
+}
+
+@media (max-width: 720px) {
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
+
+.site-footer h4 {
+  font-size: 0.85rem;
+  color: var(--color-text-dim);
+  margin-bottom: var(--space-2);
+}
+
+.site-footer p {
+  font-size: 0.9rem;
+  color: var(--color-text-faint);
+}
+
+.site-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.site-footer a {
+  font-size: 0.9rem;
+  color: var(--color-text-faint);
+  transition: color 0.15s ease;
+}
+
+.site-footer a:hover {
+  color: var(--color-accent-bright);
+}
+
+.site-footer__bottom {
+  max-width: var(--content-max);
+  margin: var(--space-5) auto 0;
+  padding: var(--space-3) var(--space-4) 0;
+  border-top: var(--border-hairline);
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* =========================================================
+   Delade sektionsmönster
+   ========================================================= */
+
+.section {
+  padding: var(--space-6) 0;
+}
+
+.section--tight {
+  padding: var(--space-5) 0;
+}
+
+.section-head {
+  max-width: 640px;
+  margin-bottom: var(--space-5);
+}
+
+.section-head h2 {
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  margin-bottom: var(--space-2);
+}
+
+.kicker {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-accent-bright);
+  margin-bottom: var(--space-2);
+  letter-spacing: 0.03em;
+}
+
+.divider {
+  border: none;
+  border-top: var(--border-hairline);
+  margin: var(--space-6) 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  background: var(--color-accent);
+  color: #100A07;
+  padding: var(--space-2) var(--space-3);
+  z-index: 100;
+  border-radius: var(--radius-sm);
+}
+
+.skip-link:focus {
+  left: var(--space-3);
+  top: var(--space-3);
+}

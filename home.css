@@ -1,0 +1,197 @@
+/* =========================================================
+   CarForge — home.css
+   Stilar specifika för startsidan
+   ========================================================= */
+
+.hero {
+  padding: var(--space-6) 0 var(--space-5);
+  border-bottom: var(--border-hairline);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -10%;
+  width: 620px;
+  height: 620px;
+  background: radial-gradient(circle, rgba(196,80,31,0.16) 0%, rgba(196,80,31,0) 70%);
+  pointer-events: none;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: var(--space-6);
+  align-items: center;
+  position: relative;
+}
+
+@media (max-width: 900px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+}
+
+.hero__title {
+  font-size: clamp(2.6rem, 5.6vw, 4.4rem);
+  line-height: 1.03;
+  margin-bottom: var(--space-4);
+  text-wrap: balance;
+}
+
+.hero__lead {
+  font-size: 1.08rem;
+  max-width: 46ch;
+  margin-bottom: var(--space-4);
+}
+
+.hero__actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+/* --- Spec plate (hero visual) --- */
+
+.hero__panel {
+  display: flex;
+  justify-content: center;
+}
+
+.spec-plate {
+  width: 100%;
+  max-width: 380px;
+  background: linear-gradient(155deg, var(--color-panel) 0%, var(--color-bg-raised) 100%);
+  border: 1px solid var(--color-panel-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  box-shadow: 0 24px 60px -20px rgba(0,0,0,0.6);
+}
+
+.spec-plate__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding: var(--space-2) 0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-text-faint);
+  letter-spacing: 0.02em;
+}
+
+.spec-plate__value {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--color-text);
+  text-align: right;
+}
+
+.spec-plate__divider {
+  border-top: var(--border-hairline);
+  margin: var(--space-2) 0;
+}
+
+.spec-plate__row--total .spec-plate__value {
+  color: var(--color-accent-bright);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+/* --- Problem grid --- */
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+@media (max-width: 780px) {
+  .problem-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.problem-card {
+  border-top: 2px solid var(--color-accent);
+  padding-top: var(--space-3);
+}
+
+.problem-card__num {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-faint);
+  margin-bottom: var(--space-2);
+}
+
+.problem-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: var(--space-2);
+}
+
+.problem-card p {
+  font-size: 0.95rem;
+}
+
+/* --- Section alt background --- */
+
+.section--alt {
+  background: var(--color-bg-raised);
+  border-top: var(--border-hairline);
+  border-bottom: var(--border-hairline);
+}
+
+.feature-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+@media (max-width: 780px) {
+  .feature-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feature-row__item h3 {
+  font-size: 1.15rem;
+  margin-bottom: var(--space-2);
+  color: var(--color-accent-bright);
+}
+
+.feature-row__item p {
+  font-size: 0.95rem;
+}
+
+/* --- CTA band --- */
+
+.cta-band {
+  padding: var(--space-6) 0 var(--space-7);
+}
+
+.cta-band__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  background: var(--color-panel);
+  border: 1px solid var(--color-panel-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+}
+
+.cta-band__inner h2 {
+  font-size: 1.6rem;
+  margin-bottom: var(--space-1);
+}
+
+.cta-band__inner p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}
