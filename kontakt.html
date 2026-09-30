@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt — CarForge</title>
+  <meta name="description" content="Kontakta gruppen bakom CarForge — Lucas, Oliver, Yassin och Harun. Gymnasiearbete på Teknikprogrammet.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@400;500;600&amp;family=Oswald:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/kontakt.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Hoppa till innehåll</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="brand">
+        <img src="images/carforge-mark.png" alt="" class="brand__logo">
+        CarForge
+      </a>
+      <button class="nav-toggle" aria-label="Öppna meny" aria-expanded="false" aria-controls="main-nav">
+        <span></span>
+      </button>
+      <nav class="main-nav" id="main-nav">
+        <a href="index.html">Hem</a>
+        <a href="konfigurator.html">Konfigurator</a>
+        <a href="kontakt.html" aria-current="page">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <div class="config-header">
+        <span class="kicker">KONTAKT</span>
+        <h1>Hör av dig</h1>
+        <p>Frågor om projektet, feedback på konfiguratorn eller något annat — skriv till oss så återkommer gruppen.</p>
+      </div>
+    </div>
+
+    <div class="wrap contact-layout">
+
+      <!-- ============ FORMULÄR ============ -->
+      <section class="contact-form-wrap" aria-label="Kontaktformulär">
+        <form class="contact-form" id="contact-form" novalidate>
+
+          <div class="form-field">
+            <label for="name">Namn</label>
+            <input type="text" id="name" name="name" required autocomplete="name">
+            <span class="form-field__error" id="name-error" role="alert"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="email">E-post</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+            <span class="form-field__error" id="email-error" role="alert"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="subject">Ämne</label>
+            <select id="subject" name="subject">
+              <option value="allmant">Allmän fråga</option>
+              <option value="feedback">Feedback på konfiguratorn</option>
+              <option value="samarbete">Samarbete / handledning</option>
+              <option value="annat">Annat</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="message">Meddelande</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+            <span class="form-field__error" id="message-error" role="alert"></span>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--full">Skicka meddelande</button>
+
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <!-- ============ GRUPPINFO ============ -->
+      <aside class="contact-info">
+        <div class="info-card">
+          <h2 class="info-card__title">Projektgrupp</h2>
+          <ul class="team-list">
+            <li>Lucas</li>
+            <li>Oliver</li>
+            <li>Yassin</li>
+            <li>Harun</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h2 class="info-card__title">Om projektet</h2>
+          <p>CarForge är ett gymnasiearbete på Teknikprogrammet — en digital konfigurator som visar hur fordonsmodifieringar ser ut, vad de kostar och om de är lagliga, innan något byggs på riktigt.</p>
+        </div>
+
+        <div class="info-card">
+          <h2 class="info-card__title">Svarstid</h2>
+          <p>Gruppen svarar normalt inom några skoldagar. Under intensiva projektperioder kan det ta något längre.</p>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="site-footer__inner">
+        <div>
+          <h4>CarForge</h4>
+          <p>Ett gymnasiearbete på Teknikprogrammet. Digital konfigurator för fordonsmodifiering — visualisering, prisberäkning och laglig status i en och samma vy.</p>
+        </div>
+        <div>
+          <h4>Navigering</h4>
+          <ul>
+            <li><a href="index.html">Hem</a></li>
+            <li><a href="konfigurator.html">Konfigurator</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Projekt</h4>
+          <ul>
+            <li><a href="kontakt.html">Kontakta gruppen</a></li>
+            <li><a href="index.html#problemet">Om projektet</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom wrap">
+      <span>© 2026 CarForge — Gymnasiearbete, Teknikprogrammet</span>
+      <span>Byggd av Lucas, Oliver, Yassin & Harun</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/kontakt.js"></script>
+</body>
+</html>

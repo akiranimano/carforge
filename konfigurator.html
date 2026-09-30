@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konfigurator — CarForge</title>
+  <meta name="description" content="Redigera din bil digitalt: välj fälgar, spoiler, avgassystem och färg, och se pris och laglig status uppdateras direkt.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@400;500;600&amp;family=Oswald:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/konfigurator.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Hoppa till innehåll</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="brand">
+        <img src="images/carforge-mark.png" alt="" class="brand__logo">
+        CarForge
+      </a>
+      <button class="nav-toggle" aria-label="Öppna meny" aria-expanded="false" aria-controls="main-nav">
+        <span></span>
+      </button>
+      <nav class="main-nav" id="main-nav">
+        <a href="index.html">Hem</a>
+        <a href="konfigurator.html" aria-current="page">Konfigurator</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <div class="config-header">
+        <span class="kicker">KONFIGURATOR</span>
+        <h1>Bygg din bil</h1>
+        <p>Välj fordon och delar till vänster. Utseende, totalpris och laglig status uppdateras direkt till höger.</p>
+      </div>
+    </div>
+
+    <div class="wrap config-layout">
+
+      <!-- ============ VÄNSTER: VAL ============ -->
+      <section class="config-panel" aria-label="Konfigurationsval">
+
+        <div class="config-group">
+          <h2 class="config-group__title">Fordon</h2>
+          <div class="select-wrap">
+            <select id="vehicle-select" class="config-select">
+              <option value="sedan">Sedan — Mellanklass</option>
+              <option value="coupe">Coupé — Sportmodell</option>
+              <option value="suv">SUV — Crossover</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="config-group">
+          <h2 class="config-group__title">Fälgar</h2>
+          <div class="option-list" data-group="falgar" role="radiogroup" aria-label="Välj fälgar">
+            <button class="option-item is-selected" data-value="standard" data-price="0" data-legal="ok" role="radio" aria-checked="true">
+              <span class="option-item__name">Standard 17"</span>
+              <span class="option-item__price">Ingår</span>
+            </button>
+            <button class="option-item" data-value="sport19" data-price="8500" data-legal="ok" role="radio" aria-checked="false">
+              <span class="option-item__name">Sport 19" Svart matt</span>
+              <span class="option-item__price">8 500 kr</span>
+            </button>
+            <button class="option-item" data-value="track20" data-price="14200" data-legal="check" role="radio" aria-checked="false">
+              <span class="option-item__name">Track 20" Lättmetall</span>
+              <span class="option-item__price">14 200 kr</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="config-group">
+          <h2 class="config-group__title">Spoiler</h2>
+          <div class="option-list" data-group="spoiler" role="radiogroup" aria-label="Välj spoiler">
+            <button class="option-item is-selected" data-value="none" data-price="0" data-legal="ok" role="radio" aria-checked="true">
+              <span class="option-item__name">Ingen spoiler</span>
+              <span class="option-item__price">Ingår</span>
+            </button>
+            <button class="option-item" data-value="lip" data-price="3200" data-legal="ok" role="radio" aria-checked="false">
+              <span class="option-item__name">Lip spoiler</span>
+              <span class="option-item__price">3 200 kr</span>
+            </button>
+            <button class="option-item" data-value="gtwing" data-price="9800" data-legal="check" role="radio" aria-checked="false">
+              <span class="option-item__name">GT-vinge, karbon</span>
+              <span class="option-item__price">9 800 kr</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="config-group">
+          <h2 class="config-group__title">Avgassystem</h2>
+          <div class="option-list" data-group="avgas" role="radiogroup" aria-label="Välj avgassystem">
+            <button class="option-item is-selected" data-value="standard" data-price="0" data-legal="ok" role="radio" aria-checked="true">
+              <span class="option-item__name">Standardsystem</span>
+              <span class="option-item__price">Ingår</span>
+            </button>
+            <button class="option-item" data-value="dual" data-price="6400" data-legal="check" role="radio" aria-checked="false">
+              <span class="option-item__name">Dubbla, rostfritt</span>
+              <span class="option-item__price">6 400 kr</span>
+            </button>
+            <button class="option-item" data-value="race" data-price="11900" data-legal="no" role="radio" aria-checked="false">
+              <span class="option-item__name">Race-system, öppet</span>
+              <span class="option-item__price">11 900 kr</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="config-group">
+          <h2 class="config-group__title">Färg</h2>
+          <div class="color-list" data-group="farg" role="radiogroup" aria-label="Välj färg">
+            <button class="color-item is-selected" data-value="black" data-price="0" data-legal="ok" style="--swatch:#15171A;" role="radio" aria-checked="true">
+              <span class="color-item__name">Svart</span>
+            </button>
+            <button class="color-item" data-value="white" data-price="0" data-legal="ok" style="--swatch:#EDEBE4;" role="radio" aria-checked="false">
+              <span class="color-item__name">Vit</span>
+            </button>
+            <button class="color-item" data-value="green" data-price="4500" data-legal="ok" style="--swatch:#2F5B43;" role="radio" aria-checked="false">
+              <span class="color-item__name">Racing Green</span>
+            </button>
+            <button class="color-item" data-value="chrome" data-price="12000" data-legal="no" style="--swatch:#9CA3A8;" role="radio" aria-checked="false">
+              <span class="color-item__name">Krom-wrap</span>
+            </button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ============ HÖGER: VISNING + SAMMANFATTNING ============ -->
+      <aside class="config-preview">
+
+        <div class="preview-stage" id="preview-stage">
+          <!--
+            [Här lägger du in embed-koden för fordonsvisaren.
+            Behåll id="preview-stage" så scriptet hittar rätt element.]
+          -->
+          <div class="preview-stage__placeholder">
+            <span class="preview-stage__placeholder-text">Fordonsvisning</span>
+            <span class="preview-stage__placeholder-sub">Embed-kod läggs in här</span>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <h2 class="summary-card__title">Sammanfattning</h2>
+
+          <ul class="summary-list" id="summary-list">
+            <li>
+              <span>Fälgar</span>
+              <span id="summary-falgar">Standard 17"</span>
+            </li>
+            <li>
+              <span>Spoiler</span>
+              <span id="summary-spoiler">Ingen spoiler</span>
+            </li>
+            <li>
+              <span>Avgassystem</span>
+              <span id="summary-avgas">Standardsystem</span>
+            </li>
+            <li>
+              <span>Färg</span>
+              <span id="summary-farg">Svart</span>
+            </li>
+          </ul>
+
+          <div class="summary-total">
+            <span>Uppskattat pris</span>
+            <span id="summary-price">0 kr</span>
+          </div>
+
+          <div class="summary-legal" id="summary-legal">
+            <span class="badge badge--ok" id="legal-badge">Godkänd konfiguration</span>
+            <p id="legal-text" class="summary-legal__text">Alla valda delar är inom gränserna för normal registrering.</p>
+          </div>
+
+          <button class="btn btn--outline btn--full" id="reset-btn" type="button">Återställ val</button>
+        </div>
+
+        <div class="review-card">
+          <h2 class="review-card__title">Recensioner</h2>
+
+          <div class="review-summary">
+            <span class="review-summary__stars" id="review-summary-stars" aria-hidden="true"></span>
+            <span class="review-summary__text" id="review-summary-text">Inga recensioner än</span>
+          </div>
+
+          <form class="review-form" id="review-form" novalidate>
+            <div class="star-rating" role="radiogroup" aria-label="Ditt betyg" id="star-rating">
+              <button type="button" class="star" data-value="5" role="radio" aria-checked="false" aria-label="5 stjärnor">★</button>
+              <button type="button" class="star" data-value="4" role="radio" aria-checked="false" aria-label="4 stjärnor">★</button>
+              <button type="button" class="star" data-value="3" role="radio" aria-checked="false" aria-label="3 stjärnor">★</button>
+              <button type="button" class="star" data-value="2" role="radio" aria-checked="false" aria-label="2 stjärnor">★</button>
+              <button type="button" class="star" data-value="1" role="radio" aria-checked="false" aria-label="1 stjärna">★</button>
+            </div>
+            <span class="form-field__error" id="rating-error" role="alert"></span>
+
+            <label for="review-comment" class="review-form__label">Kommentar (valfritt)</label>
+            <textarea id="review-comment" name="comment" rows="3" placeholder="Vad tyckte du om konfiguratorn?"></textarea>
+
+            <button type="submit" class="btn btn--outline btn--full">Skicka recension</button>
+            <p class="form-status" id="review-status" role="status" aria-live="polite"></p>
+          </form>
+
+          <ul class="review-list" id="review-list"></ul>
+        </div>
+
+      </aside>
+    </div>
+
+    <section class="section section--tight legal-guide">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">LAGLIG STATUS</span>
+          <h2>Vad räknas som lagligt?</h2>
+          <p>Allmän vägledning om vanliga ändringskategorier. Reglerna beror på fordonets ursprungliga typgodkännande — kontrollera alltid med Transportstyrelsen eller en behörig verkstad innan ni genomför en ändring på riktigt.</p>
+        </div>
+
+        <div class="legal-list">
+          <div class="legal-list__row">
+            <span class="badge badge--ok">Godkänt</span>
+            <div>
+              <h3>Fälgar inom toleransen</h3>
+              <p>Byte av fälg- och däcksdimension är normalt tillåtet så länge rullomkretsen inte avviker mer än cirka 5 % från originalmåttet och hjulen går fritt vid fullt rattutslag.</p>
+            </div>
+          </div>
+
+          <div class="legal-list__row">
+            <span class="badge badge--ok">Godkänt</span>
+            <div>
+              <h3>Bultade tillbehör som spoiler</h3>
+              <p>Montering av ett vanligt tillbehör som en spoiler räknas normalt inte som en ändring som kräver registreringsbesiktning.</p>
+            </div>
+          </div>
+
+          <div class="legal-list__row">
+            <span class="badge badge--check">Kräver kontrollbesiktning</span>
+            <div>
+              <h3>Fälgar utanför toleransen</h3>
+              <p>Större dimensionsändringar som påverkar hastighetsmätarens visning eller fordonets köregenskaper kan kräva registreringsbesiktning innan bilen är godkänd för väg.</p>
+            </div>
+          </div>
+
+          <div class="legal-list__row">
+            <span class="badge badge--check">Kräver kontrollbesiktning</span>
+            <div>
+              <h3>Färgändring eller helwrap</h3>
+              <p>En ny grundfärg eller en wrap som ändrar bilens registrerade färg bör anmälas till Transportstyrelsen så att uppgiften i vägtrafikregistret stämmer.</p>
+            </div>
+          </div>
+
+          <div class="legal-list__row">
+            <span class="badge badge--no">Ej tillåtet</span>
+            <div>
+              <h3>Avgassystem över tillåten ljudnivå</h3>
+              <p>Sedan 2009 gäller att ljudnivån inte får överstiga vad som anges i fordonets registreringsbevis, med en mindre marginal. Öppna eller katalysatorlösa system som höjer ljudet väsentligt är normalt inte tillåtna på väg.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="legal-disclaimer">Listan är exempel och allmän vägledning, inte en fullständig juridisk bedömning. Faktiska krav varierar mellan fordon, årsmodell och typgodkännande.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="site-footer__inner">
+        <div>
+          <h4>CarForge</h4>
+          <p>Ett gymnasiearbete på Teknikprogrammet. Digital konfigurator för fordonsmodifiering — visualisering, prisberäkning och laglig status i en och samma vy.</p>
+        </div>
+        <div>
+          <h4>Navigering</h4>
+          <ul>
+            <li><a href="index.html">Hem</a></li>
+            <li><a href="konfigurator.html">Konfigurator</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Projekt</h4>
+          <ul>
+            <li><a href="kontakt.html">Kontakta gruppen</a></li>
+            <li><a href="index.html#problemet">Om projektet</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom wrap">
+      <span>© 2026 CarForge — Gymnasiearbete, Teknikprogrammet</span>
+      <span>Byggd av Lucas, Oliver, Yassin & Harun</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/konfigurator.js"></script>
+  <script src="js/reviews.js"></script>
+</body>
+</html>
